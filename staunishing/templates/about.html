@@ -1,0 +1,38 @@
+{% extends 'index.html'%}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="icon" href="images/img1.jpg">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
+	<title>Staunishing</title>
+</head>
+<body>
+{% block body %}
+<div class="container" style="background-color:rgb(222, 208, 82); font-family: 'Acme', sans-serif;">
+    <div class="row">
+        <h1 style="font-family: 'Acme', sans-serif; color:red; ">STAUNISHING</h1><br>
+            <div class="left-text">
+                 <p>Staunishing is a line of watches manufactured by Quartz company.
+                     It deals in both men and women wear.<br>
+                     The watches in the Staunishing line are designed primarly for party wear, occassional uses and casual wear.
+                     Staunishing is having only analogue watches. <br>
+                     The watches is having different features like date,day and calender.It is having different dial colors.<br>
+                     It is having different series.
+                     </p>
+                <div class="primary-button">
+                    <a href="/">Home</a>
+                </div>
+            </div>
+        <div class="right-image">
+            <img src="{{i.logo.jpg}}" alt="">
+        </div>
+    </div>
+</div>
+{% endblock %}
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>

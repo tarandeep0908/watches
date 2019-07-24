@@ -1,0 +1,50 @@
+{% extends 'index.html'%}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="icon" href="images/img1.jpg">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+	<title>Sign Up</title>
+</head>
+<body>
+{% block body %}
+<div class="container">
+    <div class="row">
+        <h1>Signup Page</h1>
+    </div>
+    <form action="#" method="post">
+        {% csrf_token %}
+        <div class="row">
+            <input type="text" class="form-control" name="uname" placeholder="User Name" value="">
+
+            <input type="text" class="form-control" name="first_name" value="" placeholder="First Name" required>
+
+            <input type="text" class="form-control" name="last_name" value="" placeholder="Last Name" required>
+
+            <input type="email" class="form-control" name="email" placeholder="Mail Id" value="">
+
+            <input type="password" class="form-control" name="pward" placeholder="Password" value="">
+
+            <input type="password" class="form-control" name="cpward" placeholder="Confirm Password" value="">
+
+            <button type="submit" class="btn btn-primary">SignUp</button>
+
+        </div>
+    </form>
+    {% if messages %}
+      <div class="alert alert-danger">
+          {% for i in messages %}
+               {{i}}
+          {% endfor %}
+      </div>
+    {% endif %}
+
+</div>
+{% endblock %}
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>

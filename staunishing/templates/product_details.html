@@ -1,0 +1,52 @@
+{% extends 'index.html'%}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="icon" href="images/img1.jpg">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+	<title>Staunishing</title>
+</head>
+<body>
+{% block body %}
+<div class="conatiner">
+		<div class="row">
+			<table border="5" cellpadding="5" >
+				<tr>
+					<td><a href="/shop/sample/"><img  src="{{i.img1.url}}" width="250" depth="300"></a></td>
+					<td>
+						<h4>{{i.Name}}</h4><br>
+						<p>{{i.Price}}</p><br>
+						<p>Band Color : {{i.Band_color}}</p><br>
+                        <p>Band_material : {{i.Band_material}}</p><br>
+                        <p>Brand : {{i.Brand}}</p><br>
+                        <p>Collection: {{i.Collection}}</p><br>
+                        <p>Dial_color: {{i.Dial_color}}</p><br>
+                        <p>Crystal: {{i.Crystal}}</p><br>
+                        <p>Display_type : {{i.Display_type}}</p><br>
+                        <p>Case_Shape : {{i.Case_Shape}}</p><br>
+                        <p>Model_Number : {{i.Model_Number}}</p><br>
+                        <p>Part_Number: {{i.Part_Number}}</p><br>
+                        <p>Special_Features: {{i.Special_Features}}</p><br>
+                        <p>Warranty_Type: {{i.Warranty_Type}}</p><br>
+                        <p>Movement: {{i.Movement}}</p><br>
+                        <form method="post">
+                            {% csrf_token %}
+                            <p>Quantity : {{Form.count}}</p>
+                         <button class="btn btn-info" type="submit">ADD to Cart</button>
+                        </form>
+
+					</td>
+				</tr>
+			</table>
+        </div>
+      </div>
+
+</div>
+{% endblock %}
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>

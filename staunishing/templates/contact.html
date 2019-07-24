@@ -1,0 +1,45 @@
+{% extends 'index.html'%}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="icon" href="images/img1.jpg">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
+
+	<title>Staunishing</title>
+</head>
+<body>
+{% block body %}
+<div class="container" style="background-color:rgba(48, 51, 56,1); font-family: 'Acme', sans-serif; color:red;">
+    <div class="row">
+        <h4>Contact us</h4>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="contat-form">
+                <form id="contact" action="" method="post" >
+                                <input name="name" type="text" class="form-control" id="name" placeholder="Your Name" required="">
+                                <input name="email" type="email" class="form-control" id="email" placeholder="Email" required="">
+                                <textarea name="message" rows="6" class="form-control" id="message" placeholder="Message" required=""></textarea>
+                                <button type="submit" id="form-submit" class="btn btn-danger">Send Message</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="more-info">
+                            <p>Name:Himanshu Wadhwa<br>
+                            <em>Address:273,New lajpatrai market,chandni chowk,delhi-110006
+								<br>E-mail:Staunishing.india@gmail.com</em>
+                                <br>Phone No.:8882328853</em></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>

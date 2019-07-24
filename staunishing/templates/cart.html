@@ -1,0 +1,59 @@
+{% extends 'index.html'%}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="icon" href="images/img1.jpg">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
+	<title>Staunishing</title>
+</head>
+<body>
+{% block body %}
+<div class="container" style="background-color:rgb(222, 208, 82); font-family: 'Acme', sans-serif;">
+    <div class="row">
+        <h1 style="font-family: 'Acme', sans-serif;">Cart</h1>
+            <table class="table" border="6px">
+				<tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th></th>
+                </tr>
+                {% for i in Data %}
+                  <tr>
+					<td><a href="#"><img src="{{i.cart_product.img1.url}}" width="200" depth="200"></a></td>
+					<td>
+                        <h5>{{i.cart_product.Name}}</h5>
+                    </td>
+                      <td><p>{{i.cart_product.Price}}</p>
+                      </td>
+                      <td>
+                      <p>Qty</p>
+                      <p>{{i.count}}</p>
+					</td>
+                <td class="btn btn-danger">
+                    <a href="/deletecart/{{i.id}}">Delete</a>
+                </td>
+                      </tr>
+				{% endfor %}
+			</table>
+            <div class="cart-summary">
+                <h5>Cart Total</h5>
+                   <ul class="summary-table">
+                       <li><span>subtotal:</span> <span>{{Total}}</span></li>
+                       <li><span>delivery:</span> <span>Free</span></li>
+                       <li><span>total:</span> <span>{{Total}}</span></li>
+                   </ul>
+                    <a href="/checkout/">Checkout</a>
+            </div>
+    </div>
+
+</div>
+{% endblock %}
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+{% extends 'index.html'%}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="icon" href="images/img1.jpg">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
+
+	<title>Staunishing</title>
+</head>
+<body>
+{% block body %}
+<div class="container">
+    <div class="row">
+        <h1>Edit Product</h1>
+    </div>
+    <form action="#" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row">
+            <select name="cat">
+                {% for i in Cat %}
+                   <option value={{i}}>{{i}}</option>
+                {% endfor %}
+            </select>
+            <input type="text" class="form-control" name="Name" value="{{Data.Name}}" >
+            <input type="text" class="form-control" name="Price" value="{{Data.Price}}" >
+            <input type="text" class="form-control" name="Band_color"  value="{{Data.Band_color}}">
+            <input type="text" class="form-control" name="Band_material" value="{{Data.Band_material}}">
+            <input type="text" class="form-control" name="Brand" value="{{Data.Brand}}">
+            <input type="text" class="form-control" name="Collection" value="{{Data.Collection}}">
+            <input type="text" class="form-control" name="Dial_color" value="{{Data.Dial_color}}">
+            <input type="text" class="form-control" name="Crystal" value="{{Data.Crystal}}">
+            <input type="text" class="form-control" name="Display_type" value="{{Data.Display_type}}">
+            <input type="text" class="form-control" name="Case_Shape" value="{{Data.Case_Shape}}">
+            <input type="text" class="form-control" name="Model_Number" value="{{Data.Model_Number}}">
+            <input type="text" class="form-control" name="Part_Number" value="{{Data.Part_Number}}">
+            <input type="text" class="form-control" name="Special_Features" value="{{Data.Special_Features}}">
+            <input type="text" class="form-control" name="Warranty_Type" value="{{Data.Warranty_Type}}">
+            <input type="text" class="form-control" name="Movement"  value="{{Data.Movement}}">
+            <button type="submit" class="btn btn-info">Edit</button>
+        </div>
+    </form>
+    {% if messages %}
+       <div class="alert alert-success">
+           {%for i in messages%}
+                {{i}}
+           {%endfor%}
+       </div>
+    {%endif%}
+</div>
+{% endblock %}
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>

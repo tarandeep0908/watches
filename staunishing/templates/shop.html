@@ -1,0 +1,47 @@
+{% extends 'index.html'%}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="icon" href="images/img1.jpg">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
+	<title>Staunishing</title>
+</head>
+<body>
+{% block body %}
+<div class="container">
+    <div class="row">
+        <h4 style="font-family: 'Acme', sans-serif;">Category</h4>
+        <ul>
+        {% for  i in Cat %}
+           <li><a href="/shop/{{i.cname}}" style="font-family: 'Acme', sans-serif;">{{i.cname}}</a></li>
+        {% endfor %}
+        </ul>
+    </div>
+<div class="conatiner" style="color:red; background-color:rgba(48, 51, 56,1);">
+		<div class="row">
+			<table border="5" cellpadding="5">
+				{% for i in Data %}
+				<tr>
+					<td><a href="/shop/sample/" ><img  src="{{i.img1.url}}" width="250" depth="300"></a></td>
+					<td>
+						<h4>{{i.Name}}</h4><br>
+						<p>{{i.Price}}</p><br>
+						<p>Band Color : {{i.Band_color}}</p><br>
+
+                        <a href="/product/{{i.id}}/">Show More Details</a>
+					</td>
+				</tr>
+				{% endfor %}
+			</table>
+        </div>
+      </div>
+
+</div>
+{% endblock %}
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>

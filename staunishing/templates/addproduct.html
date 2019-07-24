@@ -1,0 +1,64 @@
+{% extends 'index.html'%}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="icon" href="images/img1.jpg">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+	<title>Add Product</title>
+</head>
+<body>
+{% block body %}
+<div class="container">
+    <div class="row">
+        <h1>Add Product</h1>
+    </div>
+    <form action="#" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row">
+            <select name="cat">
+                {% for i in Cat %}
+                   <option value={{i}}>{{i}}</option>
+                {% endfor %}
+            </select>
+            <input type="text" class="form-control" name="Name" value="" placeholder="Enter product Name" required>
+            <input type="text" class="form-control" name="Price" placeholder="Enter Price">
+            <input type="number" class="form-control" name="Band_color" placeholder="Enter Band Color" value="">
+            <input type="number" class="form-control" name="Band_material" placeholder="Enter Band Material" value="">
+            <input type="text" class="form-control" name="Brand" placeholder="Enter Brand" value="">
+            <input type="text" class="form-control" name="Collection" placeholder="Enter Collection" value="">
+            <input type="text" class="form-control" name="Dial_color" placeholder="Enter Dial_color" value="">
+            <input type="text" class="form-control" name="Crystal" placeholder="Enter Crystal" value="">
+            <input type="text" class="form-control" name="Display_type" placeholder="Enter Display_type" value="">
+            <input type="text" class="form-control" name="Case_Shape" placeholder="Enter Case_Shape" value="">
+            <input type="text" class="form-control" name="Model_Number" placeholder="Enter Model_Number" value="">
+            <input type="text" class="form-control" name="Part_Number" placeholder="Enter Part_Number" value="">
+            <input type="text" class="form-control" name="Special_Features" placeholder="Enter Special_Features" value="">
+            <input type="text" class="form-control" name="Warranty_Type" placeholder="Enter Warranty_Type" value="">
+            <input type="text" class="form-control" name="Movement" placeholder="Enter Movement" value="">
+            <input type="file" name="img1">
+            <input type="file" name="img2">
+            <input type="file" name="img3">
+            <input type="file" name="img4">
+            <input type="file" name="img5">
+            <input type="file" name="img6">
+            <input type="file" name="img7">
+
+            <button type="submit" class="btn btn-info">Add</button>
+        </div>
+    </form>
+    {% if messages %}
+       <div class="alert alert-success">
+           {%for i in messages%}
+                {{i}}
+           {%endfor%}
+       </div>
+    {%endif%}
+</div>
+{% endblock %}
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>
